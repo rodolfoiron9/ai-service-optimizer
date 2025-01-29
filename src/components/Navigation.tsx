@@ -1,5 +1,18 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, Bot, Calendar, Megaphone, Newspaper } from "lucide-react";
+import { 
+  Menu, 
+  X, 
+  Home, 
+  Bot, 
+  Calendar, 
+  Megaphone, 
+  Newspaper,
+  Search,
+  Mail,
+  Target,
+  FileText,
+  Bell
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
