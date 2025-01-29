@@ -83,7 +83,7 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           <Link
             to="/"
-            className="flex items-center space-x-2 text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="flex items-center space-x-2 text-xl font-bold text-cyan-300 hover:text-cyan-400 transition-colors"
           >
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               AI Service Pack
@@ -98,7 +98,7 @@ export const Navigation = () => {
                   <NavigationMenuItem key={item.path}>
                     {item.related.length > 0 ? (
                       <>
-                        <NavigationMenuTrigger className="text-cyan-400 hover:text-cyan-300">
+                        <NavigationMenuTrigger className="text-cyan-300 hover:text-cyan-400">
                           <span className="flex items-center gap-2">
                             {item.icon}
                             {item.title}
@@ -133,8 +133,8 @@ export const Navigation = () => {
                           "flex items-center gap-2 py-2 px-4 text-sm font-medium transition-colors",
                           "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-cyan-400 before:transition-all before:duration-300 hover:before:w-full",
                           location.pathname === item.path
-                            ? "text-cyan-400 before:w-full"
-                            : "text-cyan-400 hover:text-cyan-300"
+                            ? "text-cyan-300 before:w-full"
+                            : "text-cyan-300 hover:text-cyan-400"
                         )}
                       >
                         {item.icon}
@@ -149,7 +149,7 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-md text-cyan-300 hover:text-cyan-400 hover:bg-slate-800 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -178,8 +178,8 @@ export const Navigation = () => {
                 className={cn(
                   "flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === item.path
-                    ? "bg-cyan-500/10 text-cyan-400"
-                    : "text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300"
+                    ? "bg-cyan-500/10 text-cyan-300"
+                    : "text-cyan-300 hover:bg-cyan-500/10 hover:text-cyan-400"
                 )}
                 onClick={() => setIsOpen(false)}
               >

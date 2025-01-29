@@ -10,32 +10,32 @@ export const Contact = () => {
       case '/chatbot':
         return {
           bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
-          accentColor: 'text-[#9b87f5]',
-          hoverColor: 'hover:text-[#b4a6f7]'
+          accentColor: 'text-[#b4a6f7]',
+          hoverColor: 'hover:text-[#9b87f5]'
         };
       case '/booking':
         return {
           bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
-          accentColor: 'text-blue-400',
-          hoverColor: 'hover:text-blue-300'
+          accentColor: 'text-blue-300',
+          hoverColor: 'hover:text-blue-400'
         };
       case '/marketing':
         return {
           bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
-          accentColor: 'text-emerald-400',
-          hoverColor: 'hover:text-emerald-300'
+          accentColor: 'text-emerald-300',
+          hoverColor: 'hover:text-emerald-400'
         };
       case '/blog':
         return {
           bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
-          accentColor: 'text-orange-400',
-          hoverColor: 'hover:text-orange-300'
+          accentColor: 'text-orange-300',
+          hoverColor: 'hover:text-orange-400'
         };
       default:
         return {
           bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
-          accentColor: 'text-blue-500',
-          hoverColor: 'hover:text-blue-400'
+          accentColor: 'text-blue-400',
+          hoverColor: 'hover:text-blue-500'
         };
     }
   };
@@ -115,7 +115,7 @@ export const Contact = () => {
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className={`text-gray-400 ${style.hoverColor} transition-colors duration-300 flex items-center space-x-2`}
+                    className={`text-gray-300 ${style.hoverColor} transition-colors duration-300 flex items-center space-x-2`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gray-600"></span>
                     <span>{item.title}</span>
@@ -134,19 +134,19 @@ export const Contact = () => {
             <div className="space-y-4">
               <a 
                 href="tel:+1234567890" 
-                className={`flex items-center space-x-3 text-gray-400 ${style.hoverColor} transition-all duration-300 group`}
+                className={`flex items-center space-x-3 text-gray-300 ${style.hoverColor} transition-all duration-300 group`}
               >
                 <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span>+1 (234) 567-890</span>
               </a>
               <a 
                 href="mailto:support@yourwebsite.com" 
-                className={`flex items-center space-x-3 text-gray-400 ${style.hoverColor} transition-all duration-300 group`}
+                className={`flex items-center space-x-3 text-gray-300 ${style.hoverColor} transition-all duration-300 group`}
               >
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span>support@yourwebsite.com</span>
               </a>
-              <div className="flex items-center space-x-3 text-gray-400">
+              <div className="flex items-center space-x-3 text-gray-300">
                 <MapPin className="w-5 h-5" />
                 <span>123 AI Street, Tech City</span>
               </div>
@@ -162,7 +162,7 @@ export const Contact = () => {
             <div className="flex space-x-4">
               <a 
                 href="https://facebook.com" 
-                className={`text-gray-400 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
+                className={`text-gray-300 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -170,7 +170,7 @@ export const Contact = () => {
               </a>
               <a 
                 href="https://instagram.com" 
-                className={`text-gray-400 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
+                className={`text-gray-300 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -178,7 +178,7 @@ export const Contact = () => {
               </a>
               <a 
                 href="https://www.yourwebsite.com" 
-                className={`text-gray-400 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
+                className={`text-gray-300 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
