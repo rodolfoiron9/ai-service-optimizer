@@ -70,8 +70,8 @@ export const Navigation = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-[#1A1F2C] shadow-lg"
-          : "bg-[#1A1F2C]/95 backdrop-blur-md"
+          ? "bg-emerald-900 shadow-lg"
+          : "bg-emerald-900/95 backdrop-blur-md"
       )}
     >
       <div className="container mx-auto px-4">
@@ -80,8 +80,8 @@ export const Navigation = () => {
             to="/"
             className="flex items-center space-x-2 text-xl font-bold text-[#F1F1F1] hover:opacity-80 transition-opacity"
           >
-            <Atom className="h-8 w-8 text-[#9b87f5]" />
-            <span className="bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA] bg-clip-text text-transparent">
+            <Atom className="h-8 w-8 text-emerald-400" />
+            <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
               AI Service Pack
             </span>
           </Link>
@@ -104,12 +104,12 @@ export const Navigation = () => {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     to={item.path}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#403E43] hover:text-white"
+                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-emerald-100 hover:text-emerald-900"
                                   >
-                                    <div className="text-sm font-medium text-[#F1F1F1]">
+                                    <div className="text-sm font-medium text-emerald-900">
                                       {related.title}
                                     </div>
-                                    <p className="text-sm text-gray-400">
+                                    <p className="text-sm text-emerald-700">
                                       {related.description}
                                     </p>
                                   </Link>
@@ -124,9 +124,9 @@ export const Navigation = () => {
                         to={item.path}
                         className={cn(
                           "relative py-2 px-4 text-sm font-medium transition-colors",
-                          "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-[#9b87f5] before:transition-all before:duration-300 hover:before:w-full",
+                          "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-emerald-400 before:transition-all before:duration-300 hover:before:w-full",
                           location.pathname === item.path
-                            ? "text-[#9b87f5] before:w-full"
+                            ? "text-emerald-400 before:w-full"
                             : "text-[#F1F1F1] hover:text-white"
                         )}
                       >
@@ -141,7 +141,7 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-[#403E43] transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-emerald-800 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -156,7 +156,7 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "md:hidden absolute left-0 right-0 px-4 pt-2 pb-4 bg-[#1A1F2C] shadow-lg transition-all duration-300 ease-in-out",
+            "md:hidden absolute left-0 right-0 px-4 pt-2 pb-4 bg-emerald-900 shadow-lg transition-all duration-300 ease-in-out",
             isOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-4 pointer-events-none"
@@ -170,8 +170,8 @@ export const Navigation = () => {
                 className={cn(
                   "px-4 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === item.path
-                    ? "bg-[#403E43] text-[#9b87f5]"
-                    : "text-[#F1F1F1] hover:bg-[#403E43] hover:text-white"
+                    ? "bg-emerald-800 text-emerald-400"
+                    : "text-[#F1F1F1] hover:bg-emerald-800 hover:text-white"
                 )}
                 onClick={() => setIsOpen(false)}
               >

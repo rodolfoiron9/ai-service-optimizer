@@ -21,7 +21,7 @@ export const Contact = () => {
         };
       case '/marketing':
         return {
-          bgColor: 'bg-gradient-to-br from-[#403E43] via-[#454348] to-[#403E43]',
+          bgColor: 'bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900',
           accentColor: 'text-emerald-400',
           hoverColor: 'hover:text-emerald-300'
         };
