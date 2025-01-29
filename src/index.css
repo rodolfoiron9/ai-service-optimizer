@@ -88,9 +88,7 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -99,24 +97,24 @@
     @apply bg-background text-foreground relative min-h-screen;
     background-image: 
       linear-gradient(to right bottom, 
-        rgba(51, 51, 51, 0.97),
-        rgba(85, 85, 85, 0.95),
-        rgba(68, 68, 68, 0.93)
+        rgba(241, 241, 241, 0.97),
+        rgba(229, 229, 229, 0.95),
+        rgba(235, 235, 235, 0.93)
       ),
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 100% 100%, 24px 24px, 24px 24px;
   }
 
   .glass-effect {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300;
+    @apply bg-white/30 backdrop-blur-md border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300;
   }
 
   .glass-card {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300;
+    @apply bg-white/40 backdrop-blur-md border border-white/30 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300;
   }
 
   .glass-nav {
-    @apply bg-[#333333]/80 backdrop-blur-lg border-b border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+    @apply bg-white/80 backdrop-blur-lg border-b border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.08)];
   }
 }
