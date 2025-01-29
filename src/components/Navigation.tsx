@@ -51,7 +51,7 @@ export const Navigation = () => {
       ]
     },
     { 
-      title: "Marketing Automation",
+      title: "Marketing",
       path: "/marketing",
       icon: <Megaphone className="w-4 h-4" />,
       related: [
@@ -60,12 +60,57 @@ export const Navigation = () => {
       ]
     },
     { 
-      title: "Blog Automation",
+      title: "Blog",
       path: "/blog",
       icon: <Newspaper className="w-4 h-4" />,
       related: [
         { title: "Content Generation", description: "AI-written blog posts" },
         { title: "SEO Optimization", description: "Rank higher in search" },
+      ]
+    },
+    { 
+      title: "SEO",
+      path: "/seo",
+      icon: <Search className="w-4 h-4" />,
+      related: [
+        { title: "Keyword Analysis", description: "Target the right keywords" },
+        { title: "Performance Tracking", description: "Monitor your rankings" },
+      ]
+    },
+    { 
+      title: "Email Campaigns",
+      path: "/email",
+      icon: <Mail className="w-4 h-4" />,
+      related: [
+        { title: "Campaign Builder", description: "Create engaging emails" },
+        { title: "Analytics", description: "Track campaign performance" },
+      ]
+    },
+    { 
+      title: "Lead Generation",
+      path: "/leads",
+      icon: <Target className="w-4 h-4" />,
+      related: [
+        { title: "Lead Scoring", description: "Qualify leads automatically" },
+        { title: "Lead Nurturing", description: "Automated follow-ups" },
+      ]
+    },
+    { 
+      title: "Content",
+      path: "/content",
+      icon: <FileText className="w-4 h-4" />,
+      related: [
+        { title: "AI Writing", description: "Generate content automatically" },
+        { title: "Content Strategy", description: "Plan your content" },
+      ]
+    },
+    { 
+      title: "Reminders",
+      path: "/reminders",
+      icon: <Bell className="w-4 h-4" />,
+      related: [
+        { title: "Smart Scheduling", description: "Intelligent timing" },
+        { title: "Custom Rules", description: "Personalized automation" },
       ]
     },
   ];

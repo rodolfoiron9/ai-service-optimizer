@@ -11,6 +11,11 @@ import ChatbotService from "./pages/ChatbotService";
 import BookingService from "./pages/BookingService";
 import MarketingService from "./pages/MarketingService";
 import BlogService from "./pages/BlogService";
+import SeoOptimization from "./pages/SeoOptimization";
+import EmailCampaign from "./pages/EmailCampaign";
+import LeadGeneration from "./pages/LeadGeneration";
+import ContentGeneration from "./pages/ContentGeneration";
+import AutomationReminder from "./pages/AutomationReminder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +37,11 @@ const App = () => (
                 <Route path="/booking" element={<BookingService />} />
                 <Route path="/marketing" element={<MarketingService />} />
                 <Route path="/blog" element={<BlogService />} />
+                <Route path="/seo" element={<SeoOptimization />} />
+                <Route path="/email" element={<EmailCampaign />} />
+                <Route path="/leads" element={<LeadGeneration />} />
+                <Route path="/content" element={<ContentGeneration />} />
+                <Route path="/reminders" element={<AutomationReminder />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
