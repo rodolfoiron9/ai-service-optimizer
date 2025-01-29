@@ -34,10 +34,9 @@ export const ServicesSection = () => {
     <section className="py-20 px-4">
       <div className="container mx-auto">
         <ServicesHeader 
-          title="Comprehensive Dashboard for Service Management"
-          description="Take control of your business with our intuitive dashboard featuring real-time analytics, easy customization, and AI-driven recommendations."
+          title="Our AI-Powered Services"
+          description="Explore our suite of intelligent solutions designed to enhance your business operations."
         />
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <ServiceCard
