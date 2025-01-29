@@ -1,12 +1,52 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Bot, Calendar, Mail, Newspaper } from "lucide-react";
+import { Hero } from "@/components/Hero";
+import { ServiceCard } from "@/components/ServiceCard";
+import { Features } from "@/components/Features";
+import { Contact } from "@/components/Contact";
+
+const services = [
+  {
+    title: "AI Chatbot",
+    description: "Intelligent chatbot to handle customer inquiries instantly with seamless platform integration.",
+    icon: <Bot className="w-6 h-6" />,
+    demoLink: "#chatbot-demo",
+  },
+  {
+    title: "Booking System",
+    description: "Fully automated appointment booking with calendar sync and automated reminders.",
+    icon: <Calendar className="w-6 h-6" />,
+    demoLink: "#booking-demo",
+  },
+  {
+    title: "Marketing Automation",
+    description: "Smart email campaigns and AI-generated content to maximize conversions.",
+    icon: <Mail className="w-6 h-6" />,
+    demoLink: "#marketing-demo",
+  },
+  {
+    title: "Blog Automation",
+    description: "AI-generated SEO-optimized blog posts with automated scheduling and social media integration.",
+    icon: <Newspaper className="w-6 h-6" />,
+    demoLink: "#blog-demo",
+  },
+];
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen">
+      <Hero />
+      
+      <div className="container py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service) => (
+            <ServiceCard key={service.title} {...service} />
+          ))}
+        </div>
       </div>
+
+      <Features />
+      <Contact />
     </div>
   );
 };
