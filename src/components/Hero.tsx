@@ -25,7 +25,7 @@ export const Hero = () => {
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 backdrop-blur-md"
+                className="bg-purple-500/30 border-purple-300 text-white hover:bg-purple-400/40 backdrop-blur-md shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] transition-all duration-300"
               >
                 Get Started for $399
               </Button>
