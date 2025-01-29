@@ -45,7 +45,7 @@ const features = [
 
 export const Features = () => {
   return (
-    <div className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+    <div className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50/50 to-white/50">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
       <div className="container relative">
         <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
@@ -55,9 +55,9 @@ export const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="p-6 rounded-xl backdrop-blur-md bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/20"
             >
-              <div className="w-12 h-12 mb-4 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+              <div className="w-12 h-12 mb-4 text-primary flex items-center justify-center bg-primary/10 rounded-lg backdrop-blur-sm">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900">{feature.title}</h3>

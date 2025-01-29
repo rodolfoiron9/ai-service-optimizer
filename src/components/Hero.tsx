@@ -18,14 +18,14 @@ export const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg"
-                className="bg-[#F97316] text-white hover:bg-[#F97316]/90 group"
+                className="bg-[#F97316] text-white hover:bg-[#F97316]/90 backdrop-blur-md group"
               >
                 Explore Services <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-white text-white hover:bg-white/10 backdrop-blur-md"
               >
                 Get Started for $399
               </Button>
@@ -45,7 +45,7 @@ export const Hero = () => {
 
 const ServiceFeature = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
   <div className="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300">
-    <div className="w-12 h-12 mb-4 text-white flex items-center justify-center bg-white/20 rounded-lg">
+    <div className="w-12 h-12 mb-4 text-white flex items-center justify-center bg-white/20 rounded-lg backdrop-blur-sm">
       {icon}
     </div>
     <h3 className="text-lg font-semibold mb-1">{title}</h3>
