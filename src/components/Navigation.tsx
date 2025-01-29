@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Atom, ChevronDown } from "lucide-react";
+import { Menu, X, Home, Bot, Calendar, Megaphone, Newspaper } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
@@ -29,11 +29,13 @@ export const Navigation = () => {
     { 
       title: "Home",
       path: "/",
+      icon: <Home className="w-4 h-4" />,
       related: []
     },
     { 
       title: "AI Chatbot",
       path: "/chatbot",
+      icon: <Bot className="w-4 h-4" />,
       related: [
         { title: "Customer Support Bot", description: "24/7 automated support" },
         { title: "Sales Assistant Bot", description: "Convert leads automatically" },
@@ -42,6 +44,7 @@ export const Navigation = () => {
     { 
       title: "Booking System",
       path: "/booking",
+      icon: <Calendar className="w-4 h-4" />,
       related: [
         { title: "Calendar Integration", description: "Sync with your schedule" },
         { title: "Automated Reminders", description: "Reduce no-shows" },
@@ -50,6 +53,7 @@ export const Navigation = () => {
     { 
       title: "Marketing Automation",
       path: "/marketing",
+      icon: <Megaphone className="w-4 h-4" />,
       related: [
         { title: "Email Campaigns", description: "AI-driven email marketing" },
         { title: "Lead Generation", description: "Automated lead nurturing" },
@@ -58,6 +62,7 @@ export const Navigation = () => {
     { 
       title: "Blog Automation",
       path: "/blog",
+      icon: <Newspaper className="w-4 h-4" />,
       related: [
         { title: "Content Generation", description: "AI-written blog posts" },
         { title: "SEO Optimization", description: "Rank higher in search" },
@@ -70,18 +75,17 @@ export const Navigation = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-[#9b87f5] shadow-lg"
-          : "bg-[#9b87f5]/95 backdrop-blur-md"
+          ? "bg-slate-900 shadow-lg"
+          : "bg-slate-900/95 backdrop-blur-md"
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <Link
             to="/"
-            className="flex items-center space-x-2 text-xl font-bold text-[#F1F1F1] hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 text-xl font-bold text-white hover:opacity-80 transition-opacity"
           >
-            <Atom className="h-8 w-8 text-[#7E69AB]" />
-            <span className="bg-gradient-to-r from-[#7E69AB] to-[#6E59A5] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               AI Service Pack
             </span>
           </Link>
@@ -94,8 +98,11 @@ export const Navigation = () => {
                   <NavigationMenuItem key={item.path}>
                     {item.related.length > 0 ? (
                       <>
-                        <NavigationMenuTrigger className="text-[#F1F1F1] hover:text-white">
-                          {item.title}
+                        <NavigationMenuTrigger className="text-white hover:text-blue-400">
+                          <span className="flex items-center gap-2">
+                            {item.icon}
+                            {item.title}
+                          </span>
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
                           <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
@@ -104,12 +111,12 @@ export const Navigation = () => {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     to={item.path}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#9b87f5]/10 hover:text-[#7E69AB]"
+                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 hover:text-slate-900"
                                   >
-                                    <div className="text-sm font-medium text-[#7E69AB]">
+                                    <div className="text-sm font-medium text-slate-900">
                                       {related.title}
                                     </div>
-                                    <p className="text-sm text-[#6E59A5]">
+                                    <p className="text-sm text-slate-600">
                                       {related.description}
                                     </p>
                                   </Link>
@@ -123,13 +130,14 @@ export const Navigation = () => {
                       <Link
                         to={item.path}
                         className={cn(
-                          "relative py-2 px-4 text-sm font-medium transition-colors",
-                          "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-[#7E69AB] before:transition-all before:duration-300 hover:before:w-full",
+                          "flex items-center gap-2 py-2 px-4 text-sm font-medium transition-colors",
+                          "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-blue-400 before:transition-all before:duration-300 hover:before:w-full",
                           location.pathname === item.path
-                            ? "text-[#7E69AB] before:w-full"
-                            : "text-[#F1F1F1] hover:text-white"
+                            ? "text-blue-400 before:w-full"
+                            : "text-white hover:text-blue-400"
                         )}
                       >
+                        {item.icon}
                         {item.title}
                       </Link>
                     )}
@@ -141,14 +149,14 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-[#7E69AB] transition-colors"
+            className="md:hidden p-2 rounded-md text-white hover:bg-slate-800 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-[#F1F1F1]" />
+              <X className="h-6 w-6" />
             ) : (
-              <Menu className="h-6 w-6 text-[#F1F1F1]" />
+              <Menu className="h-6 w-6" />
             )}
           </button>
         </div>
@@ -156,7 +164,7 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "md:hidden absolute left-0 right-0 px-4 pt-2 pb-4 bg-[#9b87f5] shadow-lg transition-all duration-300 ease-in-out",
+            "md:hidden absolute left-0 right-0 px-4 pt-2 pb-4 bg-slate-900 shadow-lg transition-all duration-300 ease-in-out",
             isOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-4 pointer-events-none"
@@ -168,13 +176,14 @@ export const Navigation = () => {
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                  "flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === item.path
-                    ? "bg-[#7E69AB] text-[#F1F1F1]"
-                    : "text-[#F1F1F1] hover:bg-[#7E69AB] hover:text-white"
+                    ? "bg-blue-500/10 text-blue-400"
+                    : "text-white hover:bg-blue-500/10 hover:text-blue-400"
                 )}
                 onClick={() => setIsOpen(false)}
               >
+                {item.icon}
                 {item.title}
               </Link>
             ))}
