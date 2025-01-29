@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Atom } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -30,17 +30,20 @@ export const Navigation = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-white shadow-md"
-          : "bg-[#1A1F2C] bg-opacity-90 backdrop-blur-md"
+          ? "bg-[#1A1F2C] shadow-lg"
+          : "bg-[#1A1F2C] bg-opacity-95 backdrop-blur-md"
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <Link
             to="/"
-            className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 text-xl font-bold text-white hover:opacity-80 transition-opacity"
           >
-            AI Service Pack
+            <Atom className="h-8 w-8 text-[#9b87f5]" />
+            <span className="bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA] bg-clip-text text-transparent">
+              AI Service Pack
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -51,9 +54,9 @@ export const Navigation = () => {
                 to={item.path}
                 className={cn(
                   "relative py-2 text-sm font-medium transition-colors",
-                  "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full",
+                  "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-[#9b87f5] before:transition-all before:duration-300 hover:before:w-full",
                   location.pathname === item.path
-                    ? "text-white before:w-full"
+                    ? "text-[#9b87f5] before:w-full"
                     : "text-gray-300 hover:text-white"
                 )}
               >
@@ -64,7 +67,7 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-[#403E43] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -93,8 +96,8 @@ export const Navigation = () => {
                 className={cn(
                   "px-4 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === item.path
-                    ? "bg-white/10 text-white"
-                    : "text-gray-300 hover:bg-white/5 hover:text-white"
+                    ? "bg-[#403E43] text-[#9b87f5]"
+                    : "text-gray-300 hover:bg-[#403E43] hover:text-white"
                 )}
                 onClick={() => setIsOpen(false)}
               >
