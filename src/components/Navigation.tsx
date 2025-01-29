@@ -50,8 +50,9 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const servicesGroup = menuItems.slice(1, 5); // AI Chatbot to Blog
-  const toolsGroup = menuItems.slice(5); // SEO to Reminders
+  const servicesGroup = menuItems.slice(0, 4); // AI Chatbot to Blog
+  const toolsGroup = menuItems.slice(4, 9); // SEO to Reminders
+  const companyGroup = menuItems.slice(9); // Demo to Contact
 
   return (
     <nav
@@ -111,9 +112,20 @@ export const Navigation = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link to="/contact" className={navigationMenuTriggerStyle()}>
-                    Contact
-                  </Link>
+                  <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      {companyGroup.map((item) => (
+                        <ListItem
+                          key={item.path}
+                          title={item.title}
+                          href={item.path}
+                        >
+                          {item.related[0]?.description || ""}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
