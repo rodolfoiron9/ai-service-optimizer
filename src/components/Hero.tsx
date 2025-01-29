@@ -3,7 +3,7 @@ import { ArrowRight, Bot, Calendar, Mail } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <div className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-primary/90 to-blue-900/90">
+    <div className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-800/90 to-blue-900/90">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,11 +44,11 @@ export const Hero = () => {
 };
 
 const ServiceFeature = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-  <div className="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300">
+  <div className="glass-card">
     <div className="w-12 h-12 mb-4 text-white flex items-center justify-center bg-white/20 rounded-lg backdrop-blur-sm">
       {icon}
     </div>
-    <h3 className="text-lg font-semibold mb-1">{title}</h3>
+    <h3 className="text-lg font-semibold mb-1 text-white">{title}</h3>
     <p className="text-sm text-gray-200">{description}</p>
   </div>
 );

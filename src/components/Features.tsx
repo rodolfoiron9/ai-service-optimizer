@@ -55,7 +55,7 @@ export const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/20"
+              className="p-6 rounded-xl glass-card"
             >
               <div className="w-12 h-12 mb-4 text-primary flex items-center justify-center bg-primary/10 rounded-lg backdrop-blur-sm">
                 {feature.icon}
