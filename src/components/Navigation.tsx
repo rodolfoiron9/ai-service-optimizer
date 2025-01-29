@@ -83,9 +83,9 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           <Link
             to="/"
-            className="flex items-center space-x-2 text-xl font-bold text-white hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
           >
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               AI Service Pack
             </span>
           </Link>
@@ -98,7 +98,7 @@ export const Navigation = () => {
                   <NavigationMenuItem key={item.path}>
                     {item.related.length > 0 ? (
                       <>
-                        <NavigationMenuTrigger className="text-white hover:text-blue-400">
+                        <NavigationMenuTrigger className="text-cyan-400 hover:text-cyan-300">
                           <span className="flex items-center gap-2">
                             {item.icon}
                             {item.title}
@@ -111,12 +111,12 @@ export const Navigation = () => {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     to={item.path}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 hover:text-slate-900"
+                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-cyan-100 hover:text-slate-900"
                                   >
-                                    <div className="text-sm font-medium text-slate-900">
+                                    <div className="text-sm font-medium text-cyan-900">
                                       {related.title}
                                     </div>
-                                    <p className="text-sm text-slate-600">
+                                    <p className="text-sm text-cyan-700">
                                       {related.description}
                                     </p>
                                   </Link>
@@ -131,10 +131,10 @@ export const Navigation = () => {
                         to={item.path}
                         className={cn(
                           "flex items-center gap-2 py-2 px-4 text-sm font-medium transition-colors",
-                          "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-blue-400 before:transition-all before:duration-300 hover:before:w-full",
+                          "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-cyan-400 before:transition-all before:duration-300 hover:before:w-full",
                           location.pathname === item.path
-                            ? "text-blue-400 before:w-full"
-                            : "text-white hover:text-blue-400"
+                            ? "text-cyan-400 before:w-full"
+                            : "text-cyan-400 hover:text-cyan-300"
                         )}
                       >
                         {item.icon}
@@ -149,7 +149,7 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-white hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-md text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -178,8 +178,8 @@ export const Navigation = () => {
                 className={cn(
                   "flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === item.path
-                    ? "bg-blue-500/10 text-blue-400"
-                    : "text-white hover:bg-blue-500/10 hover:text-blue-400"
+                    ? "bg-cyan-500/10 text-cyan-400"
+                    : "text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300"
                 )}
                 onClick={() => setIsOpen(false)}
               >
