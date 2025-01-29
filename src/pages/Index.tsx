@@ -7,26 +7,26 @@ import { Contact } from "@/components/Contact";
 const services = [
   {
     title: "AI Chatbot",
-    description: "Intelligent chatbot to handle customer inquiries instantly with seamless platform integration.",
-    icon: <Bot className="w-6 h-6" />,
+    description: "Enhance customer support with our intelligent chatbot that handles inquiries 24/7, integrates seamlessly with your platform, and learns from interactions.",
+    icon: <Bot className="w-7 h-7" />,
     demoLink: "/chatbot",
   },
   {
     title: "Booking System",
-    description: "Fully automated appointment booking with calendar sync and automated reminders.",
-    icon: <Calendar className="w-6 h-6" />,
+    description: "Streamline your appointment scheduling with our automated booking system featuring calendar sync, reminders, and customizable booking rules.",
+    icon: <Calendar className="w-7 h-7" />,
     demoLink: "/booking",
   },
   {
     title: "Marketing Automation",
-    description: "Smart email campaigns and AI-generated content to maximize conversions.",
-    icon: <Mail className="w-6 h-6" />,
+    description: "Elevate your marketing with AI-driven campaigns, smart email automation, and data-driven insights to maximize your conversion rates.",
+    icon: <Mail className="w-7 h-7" />,
     demoLink: "/marketing",
   },
   {
     title: "Blog Automation",
-    description: "AI-generated SEO-optimized blog posts with automated scheduling and social media integration.",
-    icon: <Newspaper className="w-6 h-6" />,
+    description: "Generate SEO-optimized content automatically, schedule posts strategically, and maintain a consistent content calendar effortlessly.",
+    icon: <Newspaper className="w-7 h-7" />,
     demoLink: "/blog",
   },
 ];
@@ -39,8 +39,16 @@ const Index = () => {
       <div className="relative">
         <Hero />
         
-        <div className="container py-16 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Our Services</h2>
+        <div className="container py-24 px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent mb-6">
+              Enterprise-Grade Solutions
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Transform your business operations with our comprehensive suite of AI-powered tools and services.
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service) => (
               <ServiceCard key={service.title} {...service} />
