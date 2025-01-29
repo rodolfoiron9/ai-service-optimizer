@@ -1,77 +1,73 @@
-import { Newspaper, Check } from "lucide-react";
+import { PageLayout } from "@/components/layouts/PageLayout";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Newspaper, Edit, Search, BarChart3, Globe2, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const BlogService = () => {
+  const features = [
+    {
+      icon: <Edit className="w-6 h-6" />,
+      title: "AI Content Writing",
+      description: "Generate engaging blog posts automatically"
+    },
+    {
+      icon: <Search className="w-6 h-6" />,
+      title: "SEO Optimization",
+      description: "Optimize content for search engines"
+    },
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Analytics Dashboard",
+      description: "Track performance and engagement"
+    },
+    {
+      icon: <Globe2 className="w-6 h-6" />,
+      title: "Multi-language Support",
+      description: "Create content in multiple languages"
+    },
+    {
+      icon: <Newspaper className="w-6 h-6" />,
+      title: "Content Calendar",
+      description: "Schedule and manage publications"
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Quick Publishing",
+      description: "Streamlined publishing workflow"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50/50 to-indigo-100/50 backdrop-blur-sm">
-      {/* Hero Section */}
-      <div className="relative py-20 bg-gradient-to-r from-purple-600/90 to-indigo-600/90 backdrop-blur-md">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')] bg-cover bg-center opacity-10"></div>
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <h1 className="text-5xl font-bold mb-6">Blog Content Automation</h1>
-            <p className="text-xl mb-8">Generate SEO-optimized content with AI precision</p>
-            <Button 
-              size="lg" 
-              className="bg-white text-purple-600 hover:bg-purple-50 backdrop-blur-md"
-            >
-              Start Free Trial
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Features Grid */}
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="relative rounded-xl overflow-hidden backdrop-blur-md">
-            <img 
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
-              alt="AI Content Generation" 
-              className="w-full h-64 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent backdrop-blur-sm flex items-end p-6">
-              <div className="text-white">
-                <h3 className="text-xl font-bold mb-2">AI Content Generation</h3>
-                <p>Create engaging blog posts with advanced AI technology</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50/50 to-purple-50/50">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
+      
+      <PageLayout
+        title="AI Blog Management"
+        description="Create, optimize, and manage your blog content with artificial intelligence"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {features.map((feature, index) => (
+            <Card key={index} className="glass-card group hover:translate-y-[-4px]">
+              <div className="p-6">
+                <div className="w-12 h-12 mb-4 text-primary flex items-center justify-center bg-primary/10 rounded-lg backdrop-blur-sm group-hover:scale-110 transition-transform">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">{feature.title}</h3>
+                <p className="text-gray-600 mb-4">{feature.description}</p>
               </div>
-            </div>
-          </div>
-          <div className="relative rounded-xl overflow-hidden backdrop-blur-md">
-            <img 
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
-              alt="Team Collaboration" 
-              className="w-full h-64 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent backdrop-blur-sm flex items-end p-6">
-              <div className="text-white">
-                <h3 className="text-xl font-bold mb-2">Team Collaboration</h3>
-                <p>Seamless workflow for content review and publishing</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Benefits Section */}
-      <div className="container mx-auto px-4 py-20">
-        <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Blog Automation</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            "SEO-optimized content generation",
-            "Automated publishing schedule",
-            "Content performance analytics",
-            "Keyword research integration",
-            "Multi-platform distribution",
-            "Custom voice and tone settings"
-          ].map((benefit, index) => (
-            <div key={index} className="flex items-start space-x-3 bg-white/30 backdrop-blur-md p-6 rounded-xl shadow-lg hover:bg-white/40 transition-all duration-300 border border-white/20">
-              <Check className="w-6 h-6 text-purple-600 flex-shrink-0" />
-              <span className="text-gray-700">{benefit}</span>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
+
+        <div className="text-center">
+          <Link to="/contact">
+            <Button size="lg" className="bg-primary hover:bg-primary/90">
+              Start Blogging <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </PageLayout>
     </div>
   );
 };
