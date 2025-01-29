@@ -31,19 +31,19 @@ export const ChatbotWidget = () => {
       {!isOpen ? (
         <Button
           onClick={() => setIsOpen(true)}
-          className="rounded-full w-14 h-14 bg-[#9b87f5] hover:bg-[#7E69AB]"
+          className="rounded-full w-14 h-14 bg-primary hover:bg-primary/90"
         >
           <MessageSquare className="w-6 h-6" />
         </Button>
       ) : (
         <Card className="w-80 h-96 flex flex-col">
-          <div className="p-4 bg-[#9b87f5] text-white flex justify-between items-center rounded-t-lg">
+          <div className="p-4 bg-primary text-primary-foreground flex justify-between items-center rounded-t-lg">
             <span className="font-semibold">Chat with us</span>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="hover:bg-[#7E69AB] text-white"
+              className="hover:bg-primary/90 text-primary-foreground"
             >
               <X className="w-4 h-4" />
             </Button>
@@ -58,8 +58,8 @@ export const ChatbotWidget = () => {
                 <div
                   className={`max-w-[80%] p-3 rounded-lg ${
                     message.isUser
-                      ? "bg-[#9b87f5] text-white"
-                      : "bg-gray-100 text-gray-800"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-secondary-foreground"
                   }`}
                 >
                   {message.text}
@@ -78,7 +78,7 @@ export const ChatbotWidget = () => {
               />
               <Button
                 onClick={handleSend}
-                className="bg-[#9b87f5] hover:bg-[#7E69AB]"
+                className="bg-primary hover:bg-primary/90"
               >
                 <Send className="w-4 h-4" />
               </Button>
