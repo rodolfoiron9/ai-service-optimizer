@@ -31,14 +31,14 @@ export const ChatbotWidget = () => {
       {!isOpen ? (
         <Button
           onClick={() => setIsOpen(true)}
-          className="rounded-full w-14 h-14 bg-primary hover:bg-primary/90"
+          className="rounded-full w-12 h-12 md:w-14 md:h-14 bg-primary hover:bg-primary/90"
         >
-          <MessageSquare className="w-6 h-6" />
+          <MessageSquare className="w-5 h-5 md:w-6 md:h-6" />
         </Button>
       ) : (
-        <Card className="w-80 h-96 flex flex-col">
-          <div className="p-4 bg-primary text-primary-foreground flex justify-between items-center rounded-t-lg">
-            <span className="font-semibold">Chat with us</span>
+        <Card className="w-[280px] sm:w-80 h-[400px] sm:h-96 flex flex-col glass-card">
+          <div className="p-3 sm:p-4 bg-primary text-primary-foreground flex justify-between items-center rounded-t-lg">
+            <span className="font-semibold text-sm sm:text-base">Chat with us</span>
             <Button
               variant="ghost"
               size="icon"
@@ -49,14 +49,14 @@ export const ChatbotWidget = () => {
             </Button>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4">
             {messages.map((message, index) => (
               <div
                 key={index}
                 className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[80%] p-3 rounded-lg ${
+                  className={`max-w-[80%] p-2 sm:p-3 rounded-lg text-sm sm:text-base ${
                     message.isUser
                       ? "bg-primary text-primary-foreground"
                       : "bg-secondary text-secondary-foreground"
@@ -68,13 +68,14 @@ export const ChatbotWidget = () => {
             ))}
           </div>
           
-          <div className="p-4 border-t">
+          <div className="p-3 sm:p-4 border-t">
             <div className="flex gap-2">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message..."
                 onKeyPress={(e) => e.key === "Enter" && handleSend()}
+                className="text-sm sm:text-base"
               />
               <Button
                 onClick={handleSend}
