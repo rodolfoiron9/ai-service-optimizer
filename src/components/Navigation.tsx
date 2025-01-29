@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Atom } from "lucide-react";
+import { Menu, X, Atom, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,11 +26,43 @@ export const Navigation = () => {
   }, []);
 
   const menuItems = [
-    { title: "Home", path: "/" },
-    { title: "AI Chatbot", path: "/chatbot" },
-    { title: "Booking System", path: "/booking" },
-    { title: "Marketing Automation", path: "/marketing" },
-    { title: "Blog Automation", path: "/blog" },
+    { 
+      title: "Home",
+      path: "/",
+      related: []
+    },
+    { 
+      title: "AI Chatbot",
+      path: "/chatbot",
+      related: [
+        { title: "Customer Support Bot", description: "24/7 automated support" },
+        { title: "Sales Assistant Bot", description: "Convert leads automatically" },
+      ]
+    },
+    { 
+      title: "Booking System",
+      path: "/booking",
+      related: [
+        { title: "Calendar Integration", description: "Sync with your schedule" },
+        { title: "Automated Reminders", description: "Reduce no-shows" },
+      ]
+    },
+    { 
+      title: "Marketing Automation",
+      path: "/marketing",
+      related: [
+        { title: "Email Campaigns", description: "AI-driven email marketing" },
+        { title: "Lead Generation", description: "Automated lead nurturing" },
+      ]
+    },
+    { 
+      title: "Blog Automation",
+      path: "/blog",
+      related: [
+        { title: "Content Generation", description: "AI-written blog posts" },
+        { title: "SEO Optimization", description: "Rank higher in search" },
+      ]
+    },
   ];
 
   return (
@@ -31,7 +71,7 @@ export const Navigation = () => {
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
           ? "bg-[#1A1F2C] shadow-lg"
-          : "bg-[#1A1F2C] bg-opacity-95 backdrop-blur-md"
+          : "bg-[#1A1F2C]/95 backdrop-blur-md"
       )}
     >
       <div className="container mx-auto px-4">
@@ -47,22 +87,56 @@ export const Navigation = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={cn(
-                  "relative py-2 text-sm font-medium transition-colors",
-                  "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-[#9b87f5] before:transition-all before:duration-300 hover:before:w-full",
-                  location.pathname === item.path
-                    ? "text-[#9b87f5] before:w-full"
-                    : "text-gray-300 hover:text-white"
-                )}
-              >
-                {item.title}
-              </Link>
-            ))}
+          <div className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {menuItems.map((item) => (
+                  <NavigationMenuItem key={item.path}>
+                    {item.related.length > 0 ? (
+                      <>
+                        <NavigationMenuTrigger className="text-gray-300 hover:text-white">
+                          {item.title}
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                            {item.related.map((related, index) => (
+                              <li key={index}>
+                                <NavigationMenuLink asChild>
+                                  <Link
+                                    to={item.path}
+                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#403E43] hover:text-white"
+                                  >
+                                    <div className="text-sm font-medium text-white">
+                                      {related.title}
+                                    </div>
+                                    <p className="text-sm text-gray-400">
+                                      {related.description}
+                                    </p>
+                                  </Link>
+                                </NavigationMenuLink>
+                              </li>
+                            ))}
+                          </ul>
+                        </NavigationMenuContent>
+                      </>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className={cn(
+                          "relative py-2 px-4 text-sm font-medium transition-colors",
+                          "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-[#9b87f5] before:transition-all before:duration-300 hover:before:w-full",
+                          location.pathname === item.path
+                            ? "text-[#9b87f5] before:w-full"
+                            : "text-gray-300 hover:text-white"
+                        )}
+                      >
+                        {item.title}
+                      </Link>
+                    )}
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
 
           {/* Mobile Menu Button */}

@@ -1,34 +1,75 @@
-import { Newspaper } from "lucide-react";
+import { Newspaper, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const BlogService = () => {
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center space-x-4 mb-8">
-          <Newspaper className="w-12 h-12 text-primary" />
-          <h1 className="text-4xl font-bold">Blog Automation</h1>
-        </div>
-        
-        <div className="prose prose-lg max-w-none">
-          <p className="text-xl text-gray-600 mb-8">
-            AI-generated SEO-optimized blog posts with automated scheduling and social media integration.
-          </p>
-          
-          <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-          <ul className="space-y-4">
-            <li>AI Content Generation</li>
-            <li>SEO Optimization</li>
-            <li>Automated Publishing</li>
-            <li>Social Media Integration</li>
-            <li>Content Analytics</li>
-          </ul>
-
-          <div className="mt-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100">
+      {/* Hero Section */}
+      <div className="relative py-20 bg-gradient-to-r from-purple-600 to-indigo-600">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')] bg-cover bg-center opacity-10"></div>
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center text-white">
+            <h1 className="text-5xl font-bold mb-6">Blog Content Automation</h1>
+            <p className="text-xl mb-8">Generate SEO-optimized content with AI precision</p>
+            <Button 
+              size="lg" 
+              className="bg-white text-purple-600 hover:bg-purple-50"
+            >
               Start Free Trial
             </Button>
           </div>
+        </div>
+      </div>
+
+      {/* Features Grid */}
+      <div className="container mx-auto px-4 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="relative rounded-xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
+              alt="AI Content Generation" 
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+              <div className="text-white">
+                <h3 className="text-xl font-bold mb-2">AI Content Generation</h3>
+                <p>Create engaging blog posts with advanced AI technology</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative rounded-xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
+              alt="Team Collaboration" 
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+              <div className="text-white">
+                <h3 className="text-xl font-bold mb-2">Team Collaboration</h3>
+                <p>Seamless workflow for content review and publishing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Benefits Section */}
+      <div className="container mx-auto px-4 py-20">
+        <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Blog Automation</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            "SEO-optimized content generation",
+            "Automated publishing schedule",
+            "Content performance analytics",
+            "Keyword research integration",
+            "Multi-platform distribution",
+            "Custom voice and tone settings"
+          ].map((benefit, index) => (
+            <div key={index} className="flex items-start space-x-3 bg-white p-6 rounded-xl shadow-lg">
+              <Check className="w-6 h-6 text-purple-600 flex-shrink-0" />
+              <span className="text-gray-700">{benefit}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
