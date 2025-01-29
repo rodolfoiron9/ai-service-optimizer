@@ -30,15 +30,15 @@ export const Navigation = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          ? "bg-white shadow-md"
+          : "bg-[#1A1F2C] bg-opacity-90 backdrop-blur-md"
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link
             to="/"
-            className="text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
             AI Service Pack
           </Link>
@@ -51,10 +51,10 @@ export const Navigation = () => {
                 to={item.path}
                 className={cn(
                   "relative py-2 text-sm font-medium transition-colors",
-                  "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-primary before:transition-all before:duration-300 hover:before:w-full",
+                  "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-white before:transition-all before:duration-300 hover:before:w-full",
                   location.pathname === item.path
-                    ? "text-primary before:w-full"
-                    : "text-gray-600 hover:text-primary"
+                    ? "text-white before:w-full"
+                    : "text-gray-300 hover:text-white"
                 )}
               >
                 {item.title}
@@ -64,14 +64,14 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-white/10 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-gray-600" />
+              <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6 text-gray-600" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </button>
         </div>
@@ -79,7 +79,7 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "md:hidden absolute left-0 right-0 px-4 pt-2 pb-4 bg-white/80 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out",
+            "md:hidden absolute left-0 right-0 px-4 pt-2 pb-4 bg-[#1A1F2C] shadow-lg transition-all duration-300 ease-in-out",
             isOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-4 pointer-events-none"
@@ -93,8 +93,8 @@ export const Navigation = () => {
                 className={cn(
                   "px-4 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === item.path
-                    ? "bg-primary/10 text-primary"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-primary"
+                    ? "bg-white/10 text-white"
+                    : "text-gray-300 hover:bg-white/5 hover:text-white"
                 )}
                 onClick={() => setIsOpen(false)}
               >
