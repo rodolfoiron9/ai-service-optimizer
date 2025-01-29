@@ -26,7 +26,7 @@ const BookingService = () => {
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         <div className="container relative mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center p-2 bg-blue-50 rounded-full mb-8">
+            <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-8">
               <CalendarDays className="w-6 h-6 text-primary mr-2" />
               <span className="text-primary font-medium">Advanced Booking System</span>
             </div>
@@ -44,7 +44,7 @@ const BookingService = () => {
       {/* Booking Form Section */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <Card className="backdrop-blur-xl bg-white/50 border-0 shadow-lg">
+          <Card className="glass-card">
             <CardHeader>
               <CardTitle>Select Date & Time</CardTitle>
               <CardDescription>Choose your preferred appointment slot</CardDescription>
@@ -59,7 +59,7 @@ const BookingService = () => {
             </CardContent>
           </Card>
 
-          <Card className="backdrop-blur-xl bg-white/50 border-0 shadow-lg">
+          <Card className="glass-card">
             <CardHeader>
               <CardTitle>Your Details</CardTitle>
               <CardDescription>Fill in your information to complete the booking</CardDescription>
@@ -78,7 +78,7 @@ const BookingService = () => {
                   <Label htmlFor="phone">Phone Number</Label>
                   <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" required />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
                   Confirm Booking
                 </Button>
               </form>
@@ -89,8 +89,8 @@ const BookingService = () => {
 
       {/* Features Grid */}
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Card className="backdrop-blur-xl bg-white/50 border-0 shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="glass-card">
             <CardHeader>
               <Clock className="w-12 h-12 text-primary mb-4" />
               <CardTitle>24/7 Online Booking</CardTitle>
@@ -99,7 +99,7 @@ const BookingService = () => {
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card className="backdrop-blur-xl bg-white/50 border-0 shadow-lg">
+          <Card className="glass-card">
             <CardHeader>
               <Bell className="w-12 h-12 text-primary mb-4" />
               <CardTitle>Smart Reminders</CardTitle>
@@ -108,7 +108,7 @@ const BookingService = () => {
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card className="backdrop-blur-xl bg-white/50 border-0 shadow-lg">
+          <Card className="glass-card">
             <CardHeader>
               <Users className="w-12 h-12 text-primary mb-4" />
               <CardTitle>Calendar Sync</CardTitle>
