@@ -20,7 +20,7 @@ const FooterSection = ({ title, children }: { title: string; children: React.Rea
   </div>
 );
 
-export const Contact = () => {
+export const Footer = () => {
   return (
     <footer className="w-full bg-gray-100/80 backdrop-blur-md border-t border-gray-200/20">
       <div className="container mx-auto px-4 py-12">
