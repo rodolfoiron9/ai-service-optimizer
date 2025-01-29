@@ -18,7 +18,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50/30 via-purple-50/30 to-blue-50/30">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50/30 to-blue-50/30">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
         <Toaster />
         <Sonner />
