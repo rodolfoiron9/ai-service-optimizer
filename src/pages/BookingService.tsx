@@ -35,7 +35,7 @@ const BookingService = () => {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center justify-center p-2 bg-blue-50 rounded-full mb-8">
               <Calendar className="w-6 h-6 text-primary mr-2" />
-              <span className="text-primary font-medium">Booking System</span>
+              <span className="text-primary font-medium">Advanced Booking System</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
               Transform Your Booking Experience
