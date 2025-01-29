@@ -4,11 +4,37 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { MenuItem } from "./navigation/MenuItem";
 import { MobileMenu } from "./navigation/MobileMenu";
 import { menuItems } from "./navigation/menuItems";
+
+const ListItem = ({ className, title, children, href, ...props }: any) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <Link
+          to={href}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </Link>
+      </NavigationMenuLink>
+    </li>
+  );
+};
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,13 +50,14 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const servicesGroup = menuItems.slice(1, 5); // AI Chatbot to Blog
+  const toolsGroup = menuItems.slice(5); // SEO to Reminders
+
   return (
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled
-          ? "glass-nav shadow-lg"
-          : "bg-white/60 backdrop-blur-sm"
+        scrolled ? "glass-nav shadow-lg" : "bg-white/60 backdrop-blur-sm"
       )}
       role="navigation"
       aria-label="Main navigation"
@@ -48,14 +75,46 @@ export const Navigation = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <NavigationMenu>
-              <NavigationMenuList className="flex space-x-1">
-                {menuItems.map((item) => (
-                  <MenuItem 
-                    key={item.path} 
-                    item={item} 
-                    currentPath={location.pathname}
-                  />
-                ))}
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      {servicesGroup.map((item) => (
+                        <ListItem
+                          key={item.path}
+                          title={item.title}
+                          href={item.path}
+                        >
+                          {item.related[0]?.description || ""}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      {toolsGroup.map((item) => (
+                        <ListItem
+                          key={item.path}
+                          title={item.title}
+                          href={item.path}
+                        >
+                          {item.related[0]?.description || ""}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link to="/contact" className={navigationMenuTriggerStyle()}>
+                    Contact
+                  </Link>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
