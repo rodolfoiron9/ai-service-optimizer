@@ -2,7 +2,6 @@ import { Bot, Calendar, Mail, Newspaper } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Features } from "@/components/Features";
-import { Contact } from "@/components/Contact";
 
 const services = [
   {
@@ -57,7 +56,6 @@ const Index = () => {
         </div>
 
         <Features />
-        <Contact />
       </div>
     </div>
   );
