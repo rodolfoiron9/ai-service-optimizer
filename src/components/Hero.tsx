@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Package, Truck, HeadphonesIcon, Bot, Calendar, Mail, Newspaper } from "lucide-react";
+import { ArrowRight, Bot, Calendar, Mail } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -32,11 +32,10 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-3 gap-6">
             <ServiceFeature icon={<Bot />} title="AI Chatbot" description="24/7 Customer Support" />
             <ServiceFeature icon={<Calendar />} title="Booking System" description="Automated Scheduling" />
             <ServiceFeature icon={<Mail />} title="Marketing" description="Smart Campaigns" />
-            <ServiceFeature icon={<Newspaper />} title="Blog Automation" description="SEO Content" />
           </div>
         </div>
       </div>
