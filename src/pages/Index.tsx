@@ -1,59 +1,107 @@
-import { Bot, Calendar, Mail, Newspaper, Rocket, DollarSign, Zap, ArrowRight } from "lucide-react";
-import { Hero } from "@/components/Hero";
+import { Bot, Calendar, Mail, Newspaper, ArrowRight, CheckCircle2, Clock, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-const serviceCards = [
+const services = [
   {
-    icon: <Bot className="w-8 h-8 text-primary" />,
+    icon: <Bot className="w-8 h-8" />,
     title: "AI Chatbot",
-    description: "Intelligent chatbot to handle customer inquiries instantly with seamless platform integration.",
-    link: "/chatbot"
+    description: "24/7 customer support with intelligent responses and seamless platform integration.",
+    link: "/chatbot",
+    features: [
+      "Intelligent chatbot to handle customer inquiries instantly",
+      "Seamless integration with your website and social platforms",
+      "Customizable response flows and conversation scripts",
+      "Analytics to track user interactions and improve engagement"
+    ]
   },
   {
-    icon: <Calendar className="w-8 h-8 text-primary" />,
+    icon: <Calendar className="w-8 h-8" />,
     title: "Booking System",
-    description: "Fully automated appointment booking with calendar sync and automated reminders.",
-    link: "/booking"
+    description: "Automated scheduling with calendar sync and smart reminders.",
+    link: "/booking",
+    features: [
+      "Fully automated appointment booking with calendar sync",
+      "Integration with Google Calendar & third-party tools",
+      "Automated reminders via email and SMS",
+      "Customizable booking forms for tailored experiences"
+    ]
   },
   {
-    icon: <Mail className="w-8 h-8 text-primary" />,
+    icon: <Mail className="w-8 h-8" />,
     title: "Marketing Automation",
     description: "Smart email campaigns and AI-generated content to maximize conversions.",
-    link: "/marketing"
+    link: "/marketing",
+    features: [
+      "Smart email campaigns designed to maximize conversions",
+      "AI-generated content to engage customers effortlessly",
+      "Lead generation and nurturing with automated follow-ups",
+      "Performance insights and optimization recommendations"
+    ]
   },
   {
-    icon: <Newspaper className="w-8 h-8 text-primary" />,
+    icon: <Newspaper className="w-8 h-8" />,
     title: "Blog Automation",
-    description: "AI-generated SEO-optimized blog posts with automated scheduling and publishing.",
-    link: "/blog"
+    description: "SEO-optimized blog posts with automated scheduling and publishing.",
+    link: "/blog",
+    features: [
+      "AI-generated SEO-optimized blog posts to drive traffic",
+      "Automated scheduling for consistent posting",
+      "Integration with social media for auto-publishing",
+      "Content tailored to your business niche"
+    ]
   }
 ];
 
-const features = [
+const blogPosts = [
   {
-    icon: <Rocket className="w-6 h-6 text-primary" />,
-    title: "Time-Saving Automation",
-    description: "Let AI handle tasks while you focus on growth"
+    title: "How AI is Changing Web Development",
+    excerpt: "Discover the latest trends in AI-powered web development...",
+    date: "March 15, 2024"
   },
   {
-    icon: <DollarSign className="w-6 h-6 text-primary" />,
-    title: "Cost-Effective Solution",
-    description: "Full-featured package at a one-time price"
+    title: "5 Ways to Automate Your Marketing Strategy",
+    excerpt: "Learn how to leverage automation for better marketing results...",
+    date: "March 14, 2024"
   },
   {
-    icon: <Zap className="w-6 h-6 text-primary" />,
-    title: "AI-Driven Efficiency",
-    description: "Enhance operations with intelligent automation"
+    title: "Chatbots vs. Live Chat: Which is Best?",
+    excerpt: "A comprehensive comparison of automated and human support...",
+    date: "March 13, 2024"
   }
 ];
 
 const Index = () => {
+  const [selectedService, setSelectedService] = useState("");
+  const [postcode, setPostcode] = useState("");
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      <Hero />
-      
+      {/* Hero Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-primary/90 to-blue-900/90 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
+        <div className="container mx-auto text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            AI-Powered Web Development & Automation Pack
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-200">
+            Transform Your Business with Cutting-Edge AI Automation!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button size="lg" className="bg-[#F97316] hover:bg-[#F97316]/90">
+              Get Started for $399 <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button size="lg" variant="outline" className="bg-white/10 border-white/20">
+              View Demo
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Dashboard Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
@@ -68,7 +116,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {serviceCards.map((service, index) => (
+            {services.map((service, index) => (
               <Card key={index} className="group hover:shadow-lg transition-all duration-300">
                 <CardHeader>
                   <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -80,6 +128,14 @@ const Index = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <ul className="space-y-2 mb-4">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                        <span className="text-sm text-gray-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                   <Link to={service.link}>
                     <Button className="w-full group">
                       View Demo
@@ -93,27 +149,40 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-blue-500/5">
+      {/* Blog Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Why Choose Our AI-Powered Pack?
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Latest Blog Posts</h2>
             <p className="text-xl text-gray-600">
-              Transform your business with cutting-edge AI automation
+              Stay updated with the latest AI automation trends and business growth tips
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {features.map((feature, index) => (
-              <div key={index} className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
+            {blogPosts.map((post, index) => (
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <Card className="cursor-pointer hover:shadow-lg transition-all duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-xl">{post.title}</CardTitle>
+                      <CardDescription>{post.date}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">{post.excerpt}</p>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>{post.title}</DialogTitle>
+                  </DialogHeader>
+                  <div className="mt-4">
+                    <p className="text-gray-600">{post.excerpt}</p>
+                    {/* Add full blog content here */}
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </div>
@@ -122,26 +191,72 @@ const Index = () => {
       {/* Pricing Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-              <h2 className="text-3xl font-bold mb-4">One-Time Setup Fee: $399</h2>
-              <div className="flex justify-center gap-4 mb-6">
-                <span className="inline-flex items-center text-green-600">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  Instant Activation
-                </span>
-                <span className="inline-flex items-center text-blue-600">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
-                  </svg>
-                  Lifetime Updates
-                </span>
+              <h2 className="text-3xl font-bold text-center mb-8">Get Your AI-Powered Pack Today!</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="flex items-center gap-3">
+                  <Clock className="w-8 h-8 text-primary" />
+                  <div>
+                    <h3 className="font-semibold">Time-Saving</h3>
+                    <p className="text-sm text-gray-600">Let AI handle tasks</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <DollarSign className="w-8 h-8 text-primary" />
+                  <div>
+                    <h3 className="font-semibold">Cost-Effective</h3>
+                    <p className="text-sm text-gray-600">One-time price</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Bot className="w-8 h-8 text-primary" />
+                  <div>
+                    <h3 className="font-semibold">AI-Driven</h3>
+                    <p className="text-sm text-gray-600">Smart automation</p>
+                  </div>
+                </div>
               </div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Get Started Now
-              </Button>
+
+              <div className="text-center mb-8">
+                <div className="text-4xl font-bold mb-4">$399</div>
+                <div className="flex justify-center gap-4 text-sm text-gray-600">
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    Instant Activation
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    Lifetime Updates
+                  </span>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <select
+                    className="w-full p-3 border rounded-lg"
+                    value={selectedService}
+                    onChange={(e) => setSelectedService(e.target.value)}
+                  >
+                    <option value="">Select a Service</option>
+                    <option value="chatbot">AI Chatbot</option>
+                    <option value="booking">Booking System</option>
+                    <option value="marketing">Marketing Automation</option>
+                    <option value="blog">Blog Automation</option>
+                  </select>
+                  <Input
+                    type="text"
+                    placeholder="Enter Your Postcode"
+                    value={postcode}
+                    onChange={(e) => setPostcode(e.target.value)}
+                  />
+                </div>
+                <Button size="lg" className="w-full bg-primary hover:bg-primary/90">
+                  Get Started Now
+                </Button>
+              </div>
             </div>
           </div>
         </div>
