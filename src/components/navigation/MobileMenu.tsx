@@ -20,30 +20,43 @@ interface MobileMenuProps {
 export const MobileMenu = ({ isOpen, items, currentPath, onItemClick }: MobileMenuProps) => {
   return (
     <div
+      id="mobile-menu"
       className={cn(
         "md:hidden absolute left-0 right-0 px-4 pt-2 pb-4 bg-white shadow-lg transition-all duration-300 ease-in-out",
         isOpen
           ? "opacity-100 translate-y-0"
           : "opacity-0 -translate-y-4 pointer-events-none"
       )}
+      role="menu"
+      aria-hidden={!isOpen}
     >
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-1">
         {items.map((item) => {
           const Icon = item.icon;
+          const isActive = currentPath === item.path;
+          
           return (
             <Link
               key={item.path}
               to={item.path}
               className={cn(
                 "flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                currentPath === item.path
-                  ? "bg-gray-100 text-black"
-                  : "text-black hover:bg-gray-100 hover:text-gray-700"
+                "hover:bg-gray-100 focus:bg-gray-100 outline-none",
+                isActive
+                  ? "text-primary bg-gray-100"
+                  : "text-gray-600 hover:text-primary focus:text-primary"
               )}
               onClick={onItemClick}
+              role="menuitem"
+              aria-current={isActive ? "page" : undefined}
             >
-              <Icon className="w-4 h-4" />
+              <Icon className="w-4 h-4" aria-hidden="true" />
               {item.title}
+              {item.related.length > 0 && (
+                <span className="ml-auto text-xs text-gray-400">
+                  {item.related.length} options
+                </span>
+              )}
             </Link>
           );
         })}
