@@ -2,13 +2,19 @@ import {
   Home, 
   Bot, 
   Calendar, 
-  Megaphone, 
-  Newspaper,
+  DollarSign,
+  Users,
+  Target,
   Search,
   Mail,
-  Target,
   FileText,
-  Bell
+  Bell,
+  Phone,
+  Video,
+  Rocket,
+  Globe,
+  Send,
+  Newspaper
 } from "lucide-react";
 
 export const menuItems = [
@@ -39,10 +45,10 @@ export const menuItems = [
   { 
     title: "Marketing",
     path: "/marketing",
-    icon: Megaphone,
+    icon: Rocket,
     related: [
-      { title: "Email Campaigns", description: "AI-driven email marketing" },
-      { title: "Lead Generation", description: "Automated lead nurturing" },
+      { title: "Campaign Management", description: "AI-driven marketing campaigns" },
+      { title: "Performance Analytics", description: "Real-time insights" },
     ]
   },
   { 
@@ -99,4 +105,31 @@ export const menuItems = [
       { title: "Custom Rules", description: "Personalized automation" },
     ]
   },
+  {
+    title: "Schedule Demo",
+    path: "/demo",
+    icon: Video,
+    related: [
+      { title: "Product Demo", description: "See our AI in action" },
+      { title: "Custom Solutions", description: "Tailored to your needs" },
+    ]
+  },
+  {
+    title: "Pricing",
+    path: "/pricing",
+    icon: DollarSign,
+    related: [
+      { title: "Plans & Features", description: "Find the right package" },
+      { title: "Enterprise", description: "Custom solutions for large teams" },
+    ]
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+    icon: Phone,
+    related: [
+      { title: "Support", description: "Get help from our team" },
+      { title: "Sales", description: "Talk to our experts" },
+    ]
+  }
 ];

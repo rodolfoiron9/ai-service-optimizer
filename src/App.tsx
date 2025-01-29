@@ -16,6 +16,7 @@ import EmailCampaign from "./pages/EmailCampaign";
 import LeadGeneration from "./pages/LeadGeneration";
 import ContentGeneration from "./pages/ContentGeneration";
 import AutomationReminder from "./pages/AutomationReminder";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
                 <Route path="/leads" element={<LeadGeneration />} />
                 <Route path="/content" element={<ContentGeneration />} />
                 <Route path="/reminders" element={<AutomationReminder />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
