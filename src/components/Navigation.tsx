@@ -71,12 +71,13 @@ export const Navigation = () => {
   ];
 
   return (
+
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-gray-900/80 backdrop-blur-md border-b border-gray-700/20 shadow-lg"
-          : "bg-gray-900/60 backdrop-blur-sm"
+          ? "bg-gray-100/80 backdrop-blur-md border-b border-gray-200/20 shadow-lg"
+          : "bg-gray-100/60 backdrop-blur-sm"
       )}
     >
       <div className="container mx-auto px-4">
