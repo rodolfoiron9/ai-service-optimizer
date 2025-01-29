@@ -1,4 +1,4 @@
-import { Mail, Phone, Globe, Facebook, Instagram, MapPin } from "lucide-react";
+import { Mail, Phone, Globe, Facebook, Instagram, MapPin, Shield, Award, Star } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export const Contact = () => {
@@ -9,31 +9,31 @@ export const Contact = () => {
     switch (path) {
       case '/chatbot':
         return {
-          bgColor: 'bg-[#1A1F2C]',
+          bgColor: 'bg-gradient-to-br from-[#1A1F2C] via-[#1E2433] to-[#1A1F2C]',
           accentColor: 'text-[#9b87f5]',
           hoverColor: 'hover:text-[#b4a6f7]'
         };
       case '/booking':
         return {
-          bgColor: 'bg-[#221F26]',
+          bgColor: 'bg-gradient-to-br from-[#221F26] via-[#252229] to-[#221F26]',
           accentColor: 'text-blue-400',
           hoverColor: 'hover:text-blue-300'
         };
       case '/marketing':
         return {
-          bgColor: 'bg-[#403E43]',
+          bgColor: 'bg-gradient-to-br from-[#403E43] via-[#454348] to-[#403E43]',
           accentColor: 'text-emerald-400',
           hoverColor: 'hover:text-emerald-300'
         };
       case '/blog':
         return {
-          bgColor: 'bg-[#222222]',
+          bgColor: 'bg-gradient-to-br from-[#222222] via-[#272727] to-[#222222]',
           accentColor: 'text-orange-400',
           hoverColor: 'hover:text-orange-300'
         };
       default:
         return {
-          bgColor: 'bg-[#1A1F2C]',
+          bgColor: 'bg-gradient-to-br from-[#1A1F2C] via-[#1E2433] to-[#1A1F2C]',
           accentColor: 'text-blue-500',
           hoverColor: 'hover:text-blue-400'
         };
@@ -86,28 +86,39 @@ export const Contact = () => {
   ];
 
   return (
-    <footer className={`${style.bgColor} text-white py-16 border-t border-gray-800`}>
+    <footer className={`${style.bgColor} text-white py-16 border-t border-gray-800/30 backdrop-blur-sm`}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
-          <div>
-            <h3 className={`text-xl font-bold mb-4 ${style.accentColor}`}>{content.title}</h3>
-            <p className="text-gray-400">
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Shield className={`w-6 h-6 ${style.accentColor}`} />
+              <h3 className={`text-xl font-bold ${style.accentColor}`}>{content.title}</h3>
+            </div>
+            <p className="text-gray-400 leading-relaxed">
               {content.description}
             </p>
+            <div className="flex items-center space-x-2">
+              <Award className={`w-5 h-5 ${style.accentColor}`} />
+              <span className="text-sm text-gray-400">Trusted by 1000+ businesses</span>
+            </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className={`text-xl font-bold mb-4 ${style.accentColor}`}>Quick Links</h3>
-            <ul className="space-y-2">
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Star className={`w-6 h-6 ${style.accentColor}`} />
+              <h3 className={`text-xl font-bold ${style.accentColor}`}>Quick Links</h3>
+            </div>
+            <ul className="space-y-3">
               {menuItems.map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className={`text-gray-400 ${style.hoverColor} transition-colors`}
+                    className={`text-gray-400 ${style.hoverColor} transition-colors duration-300 flex items-center space-x-2`}
                   >
-                    {item.title}
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-600"></span>
+                    <span>{item.title}</span>
                   </Link>
                 </li>
               ))}
@@ -115,24 +126,27 @@ export const Contact = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className={`text-xl font-bold mb-4 ${style.accentColor}`}>Contact Us</h3>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Mail className={`w-6 h-6 ${style.accentColor}`} />
+              <h3 className={`text-xl font-bold ${style.accentColor}`}>Contact Us</h3>
+            </div>
             <div className="space-y-4">
               <a 
                 href="tel:+1234567890" 
-                className={`flex items-center space-x-2 text-gray-400 ${style.hoverColor}`}
+                className={`flex items-center space-x-3 text-gray-400 ${style.hoverColor} transition-all duration-300 group`}
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span>+1 (234) 567-890</span>
               </a>
               <a 
                 href="mailto:support@yourwebsite.com" 
-                className={`flex items-center space-x-2 text-gray-400 ${style.hoverColor}`}
+                className={`flex items-center space-x-3 text-gray-400 ${style.hoverColor} transition-all duration-300 group`}
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span>support@yourwebsite.com</span>
               </a>
-              <div className="flex items-center space-x-2 text-gray-400">
+              <div className="flex items-center space-x-3 text-gray-400">
                 <MapPin className="w-5 h-5" />
                 <span>123 AI Street, Tech City</span>
               </div>
@@ -140,12 +154,15 @@ export const Contact = () => {
           </div>
 
           {/* Social Links */}
-          <div>
-            <h3 className={`text-xl font-bold mb-4 ${style.accentColor}`}>Follow Us</h3>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Globe className={`w-6 h-6 ${style.accentColor}`} />
+              <h3 className={`text-xl font-bold ${style.accentColor}`}>Follow Us</h3>
+            </div>
             <div className="flex space-x-4">
               <a 
                 href="https://facebook.com" 
-                className={`text-gray-400 ${style.hoverColor} transition-colors`}
+                className={`text-gray-400 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -153,7 +170,7 @@ export const Contact = () => {
               </a>
               <a 
                 href="https://instagram.com" 
-                className={`text-gray-400 ${style.hoverColor} transition-colors`}
+                className={`text-gray-400 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -161,7 +178,7 @@ export const Contact = () => {
               </a>
               <a 
                 href="https://www.yourwebsite.com" 
-                className={`text-gray-400 ${style.hoverColor} transition-colors`}
+                className={`text-gray-400 ${style.hoverColor} transition-all duration-300 transform hover:scale-110`}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -171,8 +188,10 @@ export const Contact = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-400">&copy; {new Date().getFullYear()} {content.title}. {content.ctaText}</p>
+        <div className="border-t border-gray-800/30 pt-8 text-center">
+          <p className="text-gray-400">
+            &copy; {new Date().getFullYear()} {content.title}. {content.ctaText}
+          </p>
         </div>
       </div>
     </footer>
