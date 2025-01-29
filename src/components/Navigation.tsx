@@ -94,7 +94,7 @@ export const Navigation = () => {
                   <NavigationMenuItem key={item.path}>
                     {item.related.length > 0 ? (
                       <>
-                        <NavigationMenuTrigger className="text-gray-300 hover:text-white">
+                        <NavigationMenuTrigger className="text-[#F1F1F1] hover:text-white">
                           {item.title}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
@@ -106,7 +106,7 @@ export const Navigation = () => {
                                     to={item.path}
                                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#403E43] hover:text-white"
                                   >
-                                    <div className="text-sm font-medium text-white">
+                                    <div className="text-sm font-medium text-[#F1F1F1]">
                                       {related.title}
                                     </div>
                                     <p className="text-sm text-gray-400">
@@ -127,7 +127,7 @@ export const Navigation = () => {
                           "before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-0 before:bg-[#9b87f5] before:transition-all before:duration-300 hover:before:w-full",
                           location.pathname === item.path
                             ? "text-[#9b87f5] before:w-full"
-                            : "text-gray-300 hover:text-white"
+                            : "text-[#F1F1F1] hover:text-white"
                         )}
                       >
                         {item.title}
@@ -146,9 +146,9 @@ export const Navigation = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-white" />
+              <X className="h-6 w-6 text-[#F1F1F1]" />
             ) : (
-              <Menu className="h-6 w-6 text-white" />
+              <Menu className="h-6 w-6 text-[#F1F1F1]" />
             )}
           </button>
         </div>
@@ -171,7 +171,7 @@ export const Navigation = () => {
                   "px-4 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === item.path
                     ? "bg-[#403E43] text-[#9b87f5]"
-                    : "text-gray-300 hover:bg-[#403E43] hover:text-white"
+                    : "text-[#F1F1F1] hover:bg-[#403E43] hover:text-white"
                 )}
                 onClick={() => setIsOpen(false)}
               >
