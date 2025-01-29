@@ -1,6 +1,7 @@
-import { Bot, MessageSquare, Zap, BarChart3, Settings, Shield } from "lucide-react";
+import { Bot, MessageSquare, Zap, BarChart3, Settings, Shield, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ChatbotWidget } from "@/components/ChatbotWidget";
 
 const ChatbotService = () => {
   return (
@@ -19,6 +20,69 @@ const ChatbotService = () => {
         <Button size="lg" className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white">
           Start Free Trial
         </Button>
+      </div>
+
+      {/* Demo Templates Section */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold text-center mb-8">Ready-to-Use Chatbot Templates</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="p-6 hover:shadow-lg transition-shadow">
+            <h3 className="text-xl font-semibold mb-4">Customer Support Bot</h3>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>FAQ automation</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Ticket creation</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>24/7 availability</span>
+              </li>
+            </ul>
+            <Button className="w-full bg-[#9b87f5] hover:bg-[#7E69AB]">Try Demo</Button>
+          </Card>
+
+          <Card className="p-6 hover:shadow-lg transition-shadow">
+            <h3 className="text-xl font-semibold mb-4">Sales Assistant Bot</h3>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Product recommendations</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Price inquiries</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Lead qualification</span>
+              </li>
+            </ul>
+            <Button className="w-full bg-[#9b87f5] hover:bg-[#7E69AB]">Try Demo</Button>
+          </Card>
+
+          <Card className="p-6 hover:shadow-lg transition-shadow">
+            <h3 className="text-xl font-semibold mb-4">Booking Assistant Bot</h3>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Appointment scheduling</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Calendar integration</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Reminder setup</span>
+              </li>
+            </ul>
+            <Button className="w-full bg-[#9b87f5] hover:bg-[#7E69AB]">Try Demo</Button>
+          </Card>
+        </div>
       </div>
 
       {/* Features Grid */}
@@ -72,6 +136,34 @@ const ChatbotService = () => {
         </Card>
       </div>
 
+      {/* How It Works Section */}
+      <div className="max-w-4xl mx-auto mb-16">
+        <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+        <div className="space-y-8">
+          <div className="flex items-center gap-6">
+            <div className="w-12 h-12 rounded-full bg-[#9b87f5] flex items-center justify-center text-white font-bold">1</div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Choose Your Template</h3>
+              <p className="text-gray-600">Select from our pre-built templates or customize your own chatbot flow.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-6">
+            <div className="w-12 h-12 rounded-full bg-[#9b87f5] flex items-center justify-center text-white font-bold">2</div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Customize & Train</h3>
+              <p className="text-gray-600">Train your bot with your business knowledge and customize responses.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-6">
+            <div className="w-12 h-12 rounded-full bg-[#9b87f5] flex items-center justify-center text-white font-bold">3</div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Deploy & Monitor</h3>
+              <p className="text-gray-600">Launch your chatbot and track its performance through our analytics dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* CTA Section */}
       <div className="bg-[#1A1F2C] rounded-2xl p-12 text-center">
         <h2 className="text-3xl font-bold text-white mb-6">
@@ -89,6 +181,9 @@ const ChatbotService = () => {
           </Button>
         </div>
       </div>
+
+      {/* Add the ChatbotWidget component */}
+      <ChatbotWidget />
     </div>
   );
 };
