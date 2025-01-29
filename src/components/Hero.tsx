@@ -18,7 +18,7 @@ export const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg"
-                className="bg-white text-primary hover:bg-gray-100 group"
+                className="bg-[#F97316] text-white hover:bg-[#F97316]/90 group"
               >
                 Explore Services <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
