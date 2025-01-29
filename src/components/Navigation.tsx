@@ -78,7 +78,7 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           <Link
             to="/"
-            className="flex items-center space-x-2 text-xl font-bold text-white hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 text-xl font-bold text-[#F1F1F1] hover:opacity-80 transition-opacity"
           >
             <Atom className="h-8 w-8 text-[#9b87f5]" />
             <span className="bg-gradient-to-r from-[#9b87f5] to-[#D6BCFA] bg-clip-text text-transparent">
