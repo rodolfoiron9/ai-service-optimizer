@@ -9,31 +9,31 @@ export const Contact = () => {
     switch (path) {
       case '/chatbot':
         return {
-          bgColor: 'bg-gradient-to-br from-[#1A1F2C] via-[#1E2433] to-[#1A1F2C]',
+          bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
           accentColor: 'text-[#9b87f5]',
           hoverColor: 'hover:text-[#b4a6f7]'
         };
       case '/booking':
         return {
-          bgColor: 'bg-gradient-to-br from-[#221F26] via-[#252229] to-[#221F26]',
+          bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
           accentColor: 'text-blue-400',
           hoverColor: 'hover:text-blue-300'
         };
       case '/marketing':
         return {
-          bgColor: 'bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900',
+          bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
           accentColor: 'text-emerald-400',
           hoverColor: 'hover:text-emerald-300'
         };
       case '/blog':
         return {
-          bgColor: 'bg-gradient-to-br from-[#222222] via-[#272727] to-[#222222]',
+          bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
           accentColor: 'text-orange-400',
           hoverColor: 'hover:text-orange-300'
         };
       default:
         return {
-          bgColor: 'bg-gradient-to-br from-[#1A1F2C] via-[#1E2433] to-[#1A1F2C]',
+          bgColor: 'bg-gray-900/80 backdrop-blur-md border-t border-gray-700/20',
           accentColor: 'text-blue-500',
           hoverColor: 'hover:text-blue-400'
         };

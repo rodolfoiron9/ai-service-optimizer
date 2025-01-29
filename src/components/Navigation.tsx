@@ -75,8 +75,8 @@ export const Navigation = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-slate-900 shadow-lg"
-          : "bg-slate-900/95 backdrop-blur-md"
+          ? "bg-gray-900/80 backdrop-blur-md border-b border-gray-700/20 shadow-lg"
+          : "bg-gray-900/60 backdrop-blur-sm"
       )}
     >
       <div className="container mx-auto px-4">
